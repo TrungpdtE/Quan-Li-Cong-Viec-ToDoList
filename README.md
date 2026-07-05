@@ -45,3 +45,17 @@ Tại đây mình cần 3 schema:
 + TodoResponse -> trả dữ liệu: id,title,description,completed, created_at, updated_at
 
 không xài schema cho mọi thứ. khi tạo todo, client không phải là kẻ quyết định id, mà đó là do server/app quyết định. server cần trả id, created_at, updated_at. Vì vậy cần tách schema theo mục đichs sử dụng
+
+## Repositories
+Tại đây, ta cần 1 class: TodoRepository
+
+theo yc đề thì sẽ tương ứng cần các hàm xử lí sau:
++ created
++ get_all
++ get_by_id
++ update
++ delete
++ toggle_completd
++ search
+
+Repository không xử lí http,nó cũng không quyết định lỗi. nó chỉ nhận yc từ Service và thao tác với database mà thôi
