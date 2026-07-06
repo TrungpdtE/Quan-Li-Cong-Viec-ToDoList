@@ -22,7 +22,7 @@ Dữ liệu chính của hệ thống:
 + thời điểm tạo (created_at)
 + thời điểm sửa/bổ sung (updated_at)
 
-> Do đề bài yêu cầu làm theo ngôn ngữ và framework thạo nhất, nên em quyết định lựa chọn FastApi Python để hoàn thành kịp hạn nộp. Nếu có thêm thời gian để học và nghiên cứu về spring java thì em sẽ tiến hành.
+### Do đề bài yêu cầu làm theo ngôn ngữ và framework thạo nhất, nên em quyết định lựa chọn FastApi Python để hoàn thành kịp hạn nộp. Nếu có thêm thời gian để học và nghiên cứu về spring java thì em sẽ tiến hành.
 
 Vì FastAPi nên project nên chia thành Router - Service - Repository - Model - Schema theo cấu trúc thông thường.
 
