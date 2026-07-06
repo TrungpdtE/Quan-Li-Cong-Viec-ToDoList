@@ -59,3 +59,12 @@ theo yc đề thì sẽ tương ứng cần các hàm xử lí sau:
 + search
 
 Repository không xử lí http,nó cũng không quyết định lỗi. nó chỉ nhận yc từ Service và thao tác với database mà thôi
+
+## Exceptions (Helper)
+Tạo helper để trả lỗi HTTP
+
+Tại đây ta tạo 2 function ứng 2 lỗi 404 và 400
+
++ 404: khi todo không tồn tại -> Function: not_found_exception
++ 400: khi request không hợp lệ về mặt logic -> bad_request_exception
+
