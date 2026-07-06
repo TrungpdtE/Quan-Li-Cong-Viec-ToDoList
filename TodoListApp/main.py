@@ -11,7 +11,7 @@ from app.routers.todo_router import router as todo_router
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(
+app=FastAPI(
     title="Todo List API",
     description="Ứng dụng Todo List",
     version="1.0.0",
