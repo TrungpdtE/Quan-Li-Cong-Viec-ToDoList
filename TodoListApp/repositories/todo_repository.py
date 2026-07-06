@@ -13,8 +13,8 @@ Repository chỉ chịu trách nhiệm thao tác dữ liệu Todo với database
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
-from app.models.todo import Todo
-from app.schemas.todo import TodoCreate,TodoUpdate
+from TodoListApp.models.todo import Todo
+from TodoListApp.schemas.todo import TodoCreate,TodoUpdate
 
 
 class TodoRepository:

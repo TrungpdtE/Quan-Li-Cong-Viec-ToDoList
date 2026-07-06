@@ -1,10 +1,10 @@
 from typing import Annotated
 from fastapi import APIRouter, Depends, Query, Response, status
 from sqlalchemy.orm import Session
-from app.core.database import get_db
-from app.repositories.todo_repository import TodoRepository
-from app.schemas.todo import TodoCreate, TodoResponse, TodoUpdate
-from app.services.todo_service import TodoService
+from TodoListApp.core.database import get_db
+from TodoListApp.repositories.todo_repository import TodoRepository
+from TodoListApp.schemas.todo import TodoCreate, TodoResponse, TodoUpdate
+from TodoListApp.services.todo_service import TodoService
 
 
 router=APIRouter(prefix="/todos", tags=["Todos"])

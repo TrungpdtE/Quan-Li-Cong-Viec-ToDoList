@@ -5,19 +5,19 @@ from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-from app.core.database import Base, engine
-from app.routers.todo_router import router as todo_router
+from TodoListApp.core.database import Base, engine
+from TodoListApp.routers.todo_router import router as todo_router
 
 
 Base.metadata.create_all(bind=engine)
 
-app=FastAPI(
+TodoListApp=FastAPI(
     title="Todo List API",
     description="Ứng dụng Todo List",
     version="1.0.0",
 )
 
-@app.exception_handler(RequestValidationError)
+@TodoListApp.exception_handler(RequestValidationError)
 async def validation_exception_handler(
     request: Request,
     exc: RequestValidationError,
@@ -31,8 +31,8 @@ async def validation_exception_handler(
         },
     )
 
-@app.get("/")
+@TodoListApp.get("/")
 def health_check() -> dict[str, str]:
     return {"message": "Todo List API đang chạy"}
 
-app.include_router(todo_router)
+TodoListApp.include_router(todo_router)

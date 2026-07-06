@@ -1,9 +1,9 @@
 """Service chứa business logic của Todo List."""
 
-from app.exceptions.http_exception import bad_request_exception,not_found_exception
-from app.models.todo import Todo
-from app.repositories.todo_repository import TodoRepository
-from app.schemas.todo import TodoCreate,TodoUpdate
+from TodoListApp.exceptions.http_exception import bad_request_exception,not_found_exception
+from TodoListApp.models.todo import Todo
+from TodoListApp.repositories.todo_repository import TodoRepository
+from TodoListApp.schemas.todo import TodoCreate,TodoUpdate
 
 
 class TodoService:
