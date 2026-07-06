@@ -126,10 +126,6 @@ http://127.0.0.1:8000/docs
 
 --------------------------
 
-![Health check](ảnh/img3.png)
-
---------------------------
-
 Tạo 1 todo mới trước: 
 
 ```bash
@@ -193,4 +189,105 @@ curl http://127.0.0.1:8000/todos/999999
 
 ![Test nhanh](ảnh/img8.png)
 --------------------------
+API testing
+
+Cài dependencies
+```bash
+pip install -r requirements.txt
+```
+
+
+Chạy server
+```bash
+uvicorn app.main:app --reload
+```
+
+Base URL
+```bash
+http://127.0.0.1:8000
+```
+
+Swagger UI (dùng này test backend cho dễ)
+```bash
+http://127.0.0.1:8000/docs
+```
+
+Vào docs test:
+```bash
+GET /
+```
+![Health check](ảnh/img3.png)
+
+Tạo Todo mới
+```bash
+POST /todos
+```
+![Thêm todo mới - 201 tạo thành công](ảnh/img9.png)
+
+Lấy danh sách todo
+```bash
+GET /todos
+```
+![Lấy danh sách Todo toàn bộ - 200 OK](ảnh/img10.png)
+
+Lấy chi tiết todo
+```bash
+GET /todos/1
+```
+![Lấy chi tiết todo - 200 OK](ảnh/img11.png)
+
+Cập nhật todo
+```bash
+PUT /todos/1
+```
+![Đổi title cho id todo 2 - 200 OK](ảnh/img12.png)
+
+Toggle trạng thái completed
+```bash
+PATCH /todos/1/toggle
+```
+![Toggle trạng thái completed của id 1 - 200 OK](ảnh/img13.png)
+
+Lọc todo theo completed
+```bash
+GET /todos?completed=true
+```
+![Lọc todo theo completed - 200 OK](ảnh/img14.png)
+
+Tìm kiếm todo theo title
+```bash
+GET /todos?search=title
+```
+![Tìm kiếm todo theo title: "title" - 200 OK](ảnh/img15.png)
+
+Kết hợp search và completed
+```bash
+GET /todos?search=title&completed=true
+```
+![Kết hợp search và completed: "title" và True - 200 OK](ảnh/img16.png)
+
+Test validation title rỗng
+```bash
+POST /todos
+```
+![Test validation title rỗng - 400 Bad Request](ảnh/img17.png)
+
+Test todo không tồn tại
+```bash
+GET /todos/999999
+```
+![Test todo không tồn tại - 404 Not Found](ảnh/img18.png)
+
+Xóa todo
+```bash
+DELETE /todos/2
+```
+![Xóa todo - 204 No Content](ảnh/img19.png)
+
+Kiểm tra lại sau khi xóa
+```bash
+GET /todos/2
+```
+![Kiểm tra lại sau khi xóa - 404 Not Found](ảnh/img20.png)
+
 --------------------------
