@@ -6,11 +6,11 @@ from TodoListApp.repositories.todo_repository import TodoRepository
 from TodoListApp.schemas.todo import TodoCreate, TodoResponse, TodoUpdate
 from TodoListApp.services.todo_service import TodoService
 
-
-router=APIRouter(prefix="/todos", tags=["Todos"])
+router=APIRouter(prefix="/todos",tags=["Todos"])
 
 def get_todo_service(db: Annotated[Session, Depends(get_db)]) -> TodoService:
     todo_repository=TodoRepository(db)
+    
     return TodoService(todo_repository)
 
 @router.get("", response_model=list[TodoResponse])
@@ -49,3 +49,9 @@ def delete_todo(
 ) -> Response:
     service.delete_todo(todo_id)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+@router.patch("/{todo_id}/toggle", response_model=TodoResponse)
+def toggle_todo_completed(
+    todo_id: int, service: Annotated[TodoService, Depends(get_todo_service)],
+) -> TodoResponse:
+    return service.toggle_todo_completed(todo_id)

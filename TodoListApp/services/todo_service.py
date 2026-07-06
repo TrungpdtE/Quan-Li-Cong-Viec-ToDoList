@@ -11,7 +11,6 @@ class TodoService:
         self.todo_repository=todo_repository
 
     def create_todo(self,todo_data: TodoCreate) -> Todo:
-        
         return self.todo_repository.create(todo_data)
 
     def get_todos(self,completed:bool | None=None,search: str | None=None,) -> list[Todo]:

@@ -66,5 +66,4 @@ class TodoRepository:
         statement=(select(Todo).where(Todo.title.ilike(f"%{keyword}%")).order_by(Todo.id.desc()))
         if completed is not None:
             statement=statement.where(Todo.completed == completed)
-            
         return list(self.db.scalars(statement).all())

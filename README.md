@@ -94,3 +94,103 @@ các endpoint:
 + PUT /todos/{todo_id}
 + DELETE /todos/{todo_id}
 + ...
+
+## Main
+Là điểm khởi động của app -> start -> SQLAlchemy tạo table
++ check 400
++ Check health 
+
+
+## TEST
+
+```bash
+python3 -m compileall TodoListApp
+```
+
+```bash
+uvicorn TodoListApp.main:TodoListApp --reload
+```
+
+```bash
+http://127.0.0.1:8000
+```
+
+![Kiểm tra api hoạt động không](ảnh/img1.png)
+
+
+```bash
+http://127.0.0.1:8000/docs
+```
+
+![Giao diện](ảnh/img2.png)
+
+--------------------------
+
+![Health check](ảnh/img3.png)
+
+--------------------------
+
+Tạo 1 todo mới trước: 
+
+```bash
+curl -X POST http://127.0.0.1:8000/todos \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Nhớ đăng kí môn kĩ năng thực hành chuyên môn","description":"Dăng Kí Môn Học"}'
+```
+
+![Thêm todo thành công](ảnh/img4.png)
+
+
+--------------------------
+```bash
+curl -X PATCH http://127.0.0.1:8000/todos/1/toggle
+```
+
+Sẽ chuyển completed từ false sang true, ngược lại từ true sang false
+
+![toggle thành công](ảnh/img5.png)
+
+--------------------------
+TEST thêm:
+```bash
+curl "http://127.0.0.1:8000/todos"
+```
+```bash
+curl "http://127.0.0.1:8000/todos?completed=true"
+```
+```bash
+curl "http://127.0.0.1:8000/todos?completed=false"
+```
+```bash
+curl --get \
+  --data-urlencode "search=kĩ năng thực hành" \
+  http://127.0.0.1:8000/todos
+```
+```bash
+curl --get \
+  --data-urlencode "search=kĩ năng thực hành" \
+  --data "completed=true" \
+  http://127.0.0.1:8000/todos
+```
+
+![Test nhanh](ảnh/img6.png)
+
+--------------------------
+Test lỗi 400 Bad Request
+
+```bash
+curl -X POST http://127.0.0.1:8000/todos \
+  -H "Content-Type: application/json" \
+  -d '{"title":"   ","description":"invalid"}'
+```
+
+![Test nhanh](ảnh/img7.png)
+--------------------------
+Test lỗi 404 Not Found
+```bash
+curl http://127.0.0.1:8000/todos/999999
+```
+
+![Test nhanh](ảnh/img8.png)
+--------------------------
+--------------------------
