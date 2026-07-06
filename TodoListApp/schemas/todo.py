@@ -60,7 +60,6 @@ class TodoUpdate(BaseModel):
         title=value.strip()
         if not title:
             raise ValueError("Title không được để trống")
-        
         return title
 
     @field_validator("description")
