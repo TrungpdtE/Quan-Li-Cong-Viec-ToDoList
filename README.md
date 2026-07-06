@@ -68,3 +68,15 @@ Tại đây ta tạo 2 function ứng 2 lỗi 404 và 400
 + 404: khi todo không tồn tại -> Function: not_found_exception
 + 400: khi request không hợp lệ về mặt logic -> bad_request_exception
 
+## Services
+Nơi thực hiện business logic 
+
+Ta cần tạo 1 class: TodoService
+
+Các method ứng yc:
++ create todo --> get_todo_by_id --> ...
++ get todo ---> seach/getall ----nếu_rỗng--->400
++ get_todo_by_id -> gọi repository get_by_id -----nếu_không_có_todo---> 404
++ update_todo ---> get_todo_by_id -->...
++ delete_todo ---> get_todo_by_id --> ..
+
