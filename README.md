@@ -80,3 +80,17 @@ Các method ứng yc:
 + update_todo ---> get_todo_by_id -->...
 + delete_todo ---> get_todo_by_id --> ..
 
+## Router
+Tạo các endpoint chính cho todo. Router là nơi chỉ nhận path tham số, query (nhận chứ không viết query database), nhận reuqest, gọi service, trả response thôi.
+
+prefix: /todos
+
+dependency: get_to_service
+
+các endpoint:
++ GET /todos
++ GET /todos/{todo_id}
++ POST /todos
++ PUT /todos/{todo_id}
++ DELETE /todos/{todo_id}
++ ...
